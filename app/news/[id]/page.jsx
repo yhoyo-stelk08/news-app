@@ -1,11 +1,21 @@
-import Link from "next/link"
+import Link from 'next/link';
+
+import { DUMMY_NEWS } from '@/dummy-news';
 
 const NewsDetailPage = ({ params }) => {
+  const newsSlug = params.id;
+  const news = DUMMY_NEWS.find((news) => news.slug === newsSlug);
   return (
-    <div>
-        <h1>{params.id}</h1>
-        <Link href='/news'>Back to News</Link>
-    </div>
-  )
-}
-export default NewsDetailPage
+    <article className='news-article'>
+      <header className='mb-4'>
+        <img src={`/images/news/${news.image}`} alt={`${news.title}`} />
+        <h1 className={`text-3xl my-4 py-4`}>{news.title}</h1>
+        <time dateTime={news.date}>{news.date}</time>
+      </header>
+      <p>
+        {news.content}
+      </p>
+    </article>
+  );
+};
+export default NewsDetailPage;
