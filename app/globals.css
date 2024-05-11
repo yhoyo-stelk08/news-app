@@ -106,6 +106,10 @@ ul {
   @apply mb-8 pb-8 border-b-2 border-solid border-b-[#b0b0a6];
 }
 
+#archive-latest {
+  @apply mb-8 pb-8 border-b-2 border-solid border-b-[#b0b0a6];
+}
+
 .error {
   @apply text-center mt-12;
 }
