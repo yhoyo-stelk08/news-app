@@ -2,8 +2,9 @@ import Link from 'next/link';
 
 const NewsPage = () => {
   return (
-    <div>
-      <ul>
+    <>
+    <h1>News Page</h1>
+      <ul className='news-list'>
         <li>
           <Link href='/news/first-news'>First News</Link>
         </li>
@@ -14,7 +15,7 @@ const NewsPage = () => {
           <Link href='/news/third-news'>Third News</Link>
         </li>
       </ul>
-    </div>
+    </>
   );
 };
 export default NewsPage;
