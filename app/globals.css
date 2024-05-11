@@ -38,7 +38,7 @@ ul {
 }
 
 #main-header ul {
-  @apply flex gap8 font-bold;
+  @apply flex gap-8 font-bold;
 }
 
 #main-header ul a {
