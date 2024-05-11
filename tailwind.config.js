@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         Merriweather: ['Merriweather', 'serif'],
         Inter: ['Inter', 'sans-serif'],
+      },
+      gridTemplateColumns: {
+        'auto-fill-15rem': 'repeat(auto-fill, minmax(18rem, 1fr))'
       }
     },
   },
