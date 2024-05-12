@@ -22,7 +22,7 @@ const ArchieveDetailPage = ({ params }) => {
     links = getAvailableNewsMonths(selectedYear);
   }
 
-  if(selectedYear && selectedMonth) {
+  if (selectedYear && selectedMonth) {
     news = getNewsForYearAndMonth(selectedYear, selectedMonth);
     links = [];
   }
@@ -32,24 +32,35 @@ const ArchieveDetailPage = ({ params }) => {
   if (news && news.length > 0) {
     newsContent = <NewsList news={news} />;
   }
-  return (
-    <>
-      <header id="archive-header">
-        <nav>
-          <ul>
-            {links.map((link) => {
-              const href = selectedYear ? `/archive/${selectedYear}/${link}` : `/archive/${link}`
-              return (
-                <li key={link}>
-                  <Link href={href}>{link}</Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </header>
-      {newsContent}
-    </>
-  );
+
+  // check invalid path
+  if (
+    (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) ||
+    (selectedMonth &&
+      !getAvailableNewsMonths(selectedYear).includes(+selectedMonth))
+  ) {
+    throw new Error('Invalid Path');
+  }
+    return (
+      <>
+        <header id="archive-header">
+          <nav>
+            <ul>
+              {links.map((link) => {
+                const href = selectedYear
+                  ? `/archive/${selectedYear}/${link}`
+                  : `/archive/${link}`;
+                return (
+                  <li key={link}>
+                    <Link href={href}>{link}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </header>
+        {newsContent}
+      </>
+    );
 };
 export default ArchieveDetailPage;
