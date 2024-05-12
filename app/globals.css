@@ -42,7 +42,7 @@ ul {
 }
 
 #main-header ul a {
-  @apply py-2 px-4 no-underline hover:no-underline rounded text-yellow-50 hover:bg-[#bcbcb7] hover:text-stone-950 active:bg-[#bcbcb7] active:text-stone-950;
+  @apply py-2 px-4 no-underline hover:no-underline rounded hover:bg-[#bcbcb7] hover:text-stone-950 active:bg-[#bcbcb7] active:text-stone-950;
 }
 
 #home {
