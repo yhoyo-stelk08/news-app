@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import NavLinks from '@/components/NavLinks';
 
 const MainHeader = () => {
   return (
@@ -10,10 +11,10 @@ const MainHeader = () => {
         <nav>
           <ul>
             <li>
-              <Link href="/archive">Archive</Link>
+              <NavLinks href='/archive'>Archive</NavLinks>
             </li>
             <li>
-              <Link href="/news">News</Link>
+              <NavLinks href="/news">News</NavLinks>
             </li>
           </ul>
         </nav>
