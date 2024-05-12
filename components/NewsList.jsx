@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const NewsList = ({ news }) => {
   return (
     <ul className="news-list">
