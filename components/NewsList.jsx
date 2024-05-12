@@ -1,4 +1,4 @@
-const NewsListPage = ({ news }) => {
+const NewsList = ({ news }) => {
   return (
     <ul className="news-list">
       {news.map((item) => (
@@ -12,4 +12,4 @@ const NewsListPage = ({ news }) => {
     </ul>
   );
 };
-export default NewsListPage;
+export default NewsList;
