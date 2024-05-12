@@ -4,7 +4,7 @@ import { DUMMY_NEWS } from '@/dummy-news';
 import { notFound } from 'next/navigation';
 
 const NewsDetailPage = ({ params }) => {
-  const newsSlug = params.id;
+  const newsSlug = params.slug;
   const news = DUMMY_NEWS.find((news) => news.slug === newsSlug);
 
   if(!news) notFound();
