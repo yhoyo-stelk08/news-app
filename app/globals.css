@@ -50,7 +50,7 @@ ul {
 }
 
 #home img {
-  @apply rounded-[50%] w-32 shadow;
+  @apply rounded-[50%] w-32 shadow mx-auto;
 }
 
 #home h1 {
