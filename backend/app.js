@@ -1,12 +1,13 @@
-import { Pool } from 'pg';
+import 'dotenv/config';
+import pg from 'pg';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
 const app = express();
-const appPort = 8080;
-
-const db = new Pool({
+const appPort = 8000;
+// console.log(process.env.PG_USER);
+const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
   database: process.env.PG_DBNAME,
@@ -24,11 +25,16 @@ try {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/news', (req, res) => {
-  const news = db.prepare('SELECT * FROM news').all();
-  res.json(news);
+app.get('/news', async (req, res) => {
+  try {
+    const result = await db.query('SELECT * FROM news');
+    const news = result.rows;
+    res.json(news);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(appPort, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${appPort}`);
 });
